@@ -1,45 +1,63 @@
-document.querySelectorAll('.numeros').forEach(numero =>{ 
+function eachDel(){
 
-    const numeroDigitado  = []
-    var numeroAtual = ''
+    numeroAtual = numeroAtual.split('') // numero em array
+    numeroAtual.pop() // tira ultimo elemento
+    numeroAtual = numeroAtual.toString().replace(/,/g, '') // troca virgulas por nada
 
-    var output = document.getElementById('output')
+    output.value = numeroAtual // imprime no display
 
-    numero.addEventListener('click', function(){
-        
-        if(output.value == 0){
-            output.value = ''
-        }
+    if ( numeroAtual == 0 ) output.value = 0
+}
 
-        output.value += numero.textContent
+function deleteAll(numeroAtual, output) {
+    output.value = 0 // reseta display
+    numeroAtual = 0 // reseta numeroAtual
+}
 
-        numeroDigitado.push(output.value)
-        numeroAtual = numeroDigitado[numeroDigitado.length - 1]
-        
-        console.log(numeroAtual)
+function putNumero(numero){
 
+    // quando pressionar uma tecla: reseta display se for 0 display
+    if ( output.value == 0 )  output.value = ''
 
-        var deleteAll= document.getElementById('deleteAll')
-        deleteAll.onclick = () => output.value = 0
+    output.value += numero.textContent // e vai colocando no display o numero escolhido
     
-        var deleteEach = document.getElementById('deleteEach')
-        deleteEach.onclick = () => {
-            numeroAtual =  numeroAtual.split('')
-            numeroAtual.pop()
+    const numeroDigitado  = []
+    numeroDigitado.push(output.value)
 
-            setTimeout( () => {
-                numeroAtual = numeroAtual.toString().replace(/,/g, '')
-                output.value = numeroAtual
-                console.log(numeroAtual)        
-            }, 10)
+    // numero atual é ultimo elemento do array que vai colocando todos os numeros do display, logo: o atual
+    numeroAtual = numeroDigitado[numeroDigitado.length - 1]
 
-        }
+    // console.log(numeroAtual)    
+}
 
 
+document.querySelectorAll('.numeros').forEach( numero => { 
+    
+    var numeroAtual = ''
+    var output = document.getElementById('output')
+    numero.addEventListener('click', () => putNumero(numero, output) )
+    
+    addEventListener('keydown', event => {
+        if (numero.textContent == event.key)  numero.click()
     })
-
+    
 })
+
+var dAll = document.getElementById('deleteAll')
+dAll.addEventListener('click', () => deleteAll(numeroAtual, output) )
+
+var deleteEach = document.getElementById('deleteEach')
+deleteEach.addEventListener('click', () => eachDel(numeroAtual, output) ) 
 
 addEventListener('keydown', (event) => {
-    
+    // console.log(event.key)
+    switch(event.key){
+        case 'Backspace':
+            deleteEach.click()     
+            break
+        case 'Delete':
+            dAll.click()     
+            break
+        }
 })
+
