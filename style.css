@@ -1,0 +1,121 @@
+*::before, *, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    width: 300px;
+    height: 430px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #fff;
+
+}
+
+main{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .display{
+    width: 100%;
+    height: 110px;
+    position: relative;
+    background-color: rgb(55, 55, 55);
+
+    margin-bottom: auto;
+}
+
+.display input{
+    background: none;
+    border: none;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: end;
+    padding: 20px;
+
+    color: #fff;
+    font-size: 20px;
+}
+
+table{
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    border-collapse: collapse;
+    
+    background-color: rgb(55, 55, 55);
+}
+
+table thead tr th,
+table tbody tr .operador
+{
+    background-color: rgb(46, 46, 49);
+}
+
+table tbody tr .igual
+{
+    background-color: rgb(51, 158, 220);
+}
+
+table tbody tr .igual:hover{
+    background-color: rgb(13, 166, 255);
+
+}
+
+table tr th,
+table tr td{
+    text-align: center;
+    width: 75px;
+    height: 48px;
+    background-color: rgb(26, 26, 28);
+
+    color: #fff;
+
+    margin: 2px;
+    border: 2px solid rgb(55, 55, 55);
+}
+
+table tr th:hover,
+table tr td:hover{
+    background-color: rgba(255, 255, 255, 0.282);
+    cursor: pointer;
+    user-select: none;
+}
+
+footer{
+    width: 100%;
+    background-color: rgb(38, 40, 44);
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer p{
+    color: rgb(248, 248, 248);
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 400;
+    font-size: 10px;
+}
