@@ -12,7 +12,8 @@
 
     <main>
         <div class="display">
-            <input type="text" name="" id="output" value="0">
+            <input type="text" name="" id="output" value="0" disabled>
+            <input type="text" id="result" value="0">
         </div>
         <table>
             <thead>
@@ -46,13 +47,13 @@
                     <td class="numeros">1</td>
                     <td class="numeros">2</td>
                     <td class="numeros">3</td>
-                    <td class="operador">+</td>
+                    <td class="operador" id="soma">+</td>
                 </tr>
                 <tr>
                     <td> <sup>+</sup>/<sub>-</sub></td>
                     <td class="numeros">0</td>
                     <td>,</td>
-                    <td class="igual">=</td>
+                    <td class="igual" id="igual">=</td>
                 </tr>
             </tbody>
             <tfoot>
